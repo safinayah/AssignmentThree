@@ -14,13 +14,7 @@ public class Item {
         this.imageID = imageID;
     }
 
-    public int getImageID() {
-        return imageID;
-    }
 
-    public void setImageID(int imageID) {
-        this.imageID = imageID;
-    }
 
     public static final Item[] menu = {
             new Item("Quinoa Salad","Rocket, Carrots,Black Olive, " +
@@ -32,17 +26,29 @@ public class Item {
 
     };
 
+    public String getName() {
+        return name;
+    }
 
-        public String getName(){
-         return name;
-        }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-
-        public String getContents(){
+    public String getContents() {
         return contents;
-        }
+    }
 
+    public void setContents(String contents) {
+        this.contents = contents;
+    }
 
+    public int getImageID() {
+        return imageID;
+    }
+
+    public void setImageID(int imageID) {
+        this.imageID = imageID;
+    }
 }
 
 

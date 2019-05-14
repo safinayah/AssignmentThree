@@ -1,6 +1,7 @@
 package com.example.assignment;
 
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
@@ -8,13 +9,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private String[] names;
     private String[] contents;
     private int[] imageIds;
+
 
     public MyAdapter(String[] names, String[] contents, int[] imageIds) {
         this.names = names;
@@ -41,19 +47,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         imageView.setImageDrawable(dr);
 
-        TextView text = (TextView)cardView.findViewById(R.id.txtName);
+         TextView nametext = (TextView)cardView.findViewById(R.id.txtName);
+         TextView content = (TextView)cardView.findViewById(R.id.txtContent);
 
 
 
-        text.setText(contents[position]);
-        text.append("\n"+names[position]);
+
+        nametext.setText(contents[position]);
+
 
 
 
         cardView.setOnClickListener( new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //
+                v.getContext().startActivity(new Intent(v.getContext(), edit.class));
             }
         });
     }

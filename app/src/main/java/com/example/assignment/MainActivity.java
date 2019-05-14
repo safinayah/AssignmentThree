@@ -37,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
         MyAdapter adapter = new MyAdapter(name, content,ids);
         recycler.setAdapter(adapter);
 
-
-
     }
 
 
