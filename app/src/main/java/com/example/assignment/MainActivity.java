@@ -2,9 +2,12 @@ package com.example.assignment;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
 
 import com.example.assignment.model.Item;
 import com.google.gson.Gson;
@@ -20,12 +23,13 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences prefs;
     private Gson gson = new Gson();
 
+    public static final String MY_ITEMS = "MyPrefsFile";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        SharedPreferences.Editor editor = getSharedPreferences(MY_ITEMS, MODE_PRIVATE).edit();
         setContentView(R.layout.activity_main);
         RecyclerView recycler = findViewById(R.id.RV_fitafe);
 
@@ -42,13 +46,17 @@ public class MainActivity extends AppCompatActivity {
             editor.putString("Image",name[i] = String.valueOf(Item.menu[i].getImageID()));
         }
 
-
+        editor.apply();
 
         recycler.setLayoutManager(new LinearLayoutManager(this));
         MyAdapter adapter = new MyAdapter(name, content,ids);
         recycler.setAdapter(adapter);
 
     }
+
+
+
+
 
 
 }

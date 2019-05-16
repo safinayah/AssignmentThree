@@ -6,15 +6,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.assignment.model.DataLoader;
 import com.example.assignment.model.Item;
 
 public class edit extends AppCompatActivity {
 
+    private DataLoader database;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
+        database = new DataLoader(this);
     }
 
     public void edit(View view) {
@@ -23,14 +27,15 @@ public class edit extends AppCompatActivity {
         String update = editText.getText().toString();
         item.setName(update);
         TextView txt = findViewById(R.id.viewer);
-        txt.setText(item.getName().toString());
+        txt.setText(item.getName());
 
 
     }
 
     public void back(View view) {
 
-        view.getContext().startActivity(new Intent(view.getContext(), edit.class));
+     view.getContext().startActivity(new Intent(view.getContext(), MainActivity.class));
+
 
     }
 }
