@@ -24,8 +24,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private String[] contents;
     private int[] imageIds;
 
-    List<Item> list = new ArrayList<>();
-
     public MyAdapter(String[] names, String[] contents, int[] imageIds) {
         this.names = names;
         this.contents = contents;
@@ -52,16 +50,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         imageView.setImageDrawable(dr);
 
          TextView nametext = cardView.findViewById(R.id.txtName);
-
-
-
-
-
-        nametext.setText(contents[position]);
-
-
-
-
+         nametext.setText(contents[position]);
         cardView.setOnClickListener( new View.OnClickListener(){
             @Override
             public void onClick(View v){

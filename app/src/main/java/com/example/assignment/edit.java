@@ -1,6 +1,8 @@
 package com.example.assignment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +16,8 @@ import com.example.assignment.model.Item;
 public class edit extends AppCompatActivity {
 
     private DataLoader database;
+
+    private  Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,13 +25,16 @@ public class edit extends AppCompatActivity {
         database = new DataLoader(this);
     }
 
-    public void edit(View view) {
+    public String edit(View view) {
         Item item = new Item();
         EditText editText =findViewById(R.id.editTxt);
         String update = editText.getText().toString();
         item.setName(update);
         TextView txt = findViewById(R.id.viewer);
         txt.setText(item.getName());
+        SharedPreferences sharedpreferences = context.getSharedPreferences(MainActivity.MY_ITEMS, Context.MODE_PRIVATE);
+        database.saveAll();
+        return sharedpreferences.getString("name", "notfound");
 
 
     }
