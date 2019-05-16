@@ -10,7 +10,6 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 
 public class DataLoader {
-
     private SharedPreferences prefs;
     private SharedPreferences.Editor editor;
     private Gson gson = new Gson();

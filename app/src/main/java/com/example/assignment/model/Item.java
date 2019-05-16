@@ -19,12 +19,13 @@ public class Item {
 
 
     public static final Item[] menu = {
+
             new Item("Quinoa Salad","Rocket, Carrots,Black Olive, " +
                     "Corn, White Cabbage, Quinoa, Cranberry, Red Onion, Cherryy Tomato, Sunflower Seed, Honey Mustard Sauce", R.drawable.qsalad),
             new Item("Sunrise Salad", "Lettuce, Cucumber, Cherry Tomato, Broccoli, Mushroom, Purpule Onions, Boiled Egg, Turkey, Low Fat Cheese, Avocado," +
                     " Sunflower Seeds, Lemon Sauce", R.drawable.sunrisesalad),
-            new Item("Smoked Salmon Sandwich","Smoked Salmon, Tomato, Purple Onion, Avocado, Lettuce, Mushroom, Lemon, Vinigrette",R.drawable.sandwich)
-
+            new Item("Smoked Salmon Sandwich","Smoked Salmon, Tomato, Purple Onion, Avocado, Lettuce, Mushroom, Lemon, Vinigrette",R.drawable.sandwich),
+            new Item ("granola Yougrt", "sesonal fruit, Granola , soft yougrt",R.drawable.yougrt),
 
     };
 

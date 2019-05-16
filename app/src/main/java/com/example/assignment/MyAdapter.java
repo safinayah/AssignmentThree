@@ -13,14 +13,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.assignment.model.Item;
 
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private String[] names;
     private String[] contents;
     private int[] imageIds;
 
+    List<Item> list = new ArrayList<>();
 
     public MyAdapter(String[] names, String[] contents, int[] imageIds) {
         this.names = names;
@@ -42,13 +46,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         CardView cardView = holder.cardView;
-        ImageView imageView = (ImageView) cardView.findViewById(R.id.image);
+        ImageView imageView = cardView.findViewById(R.id.image);
         Drawable dr = ContextCompat.getDrawable(cardView.getContext(), imageIds[position]);
 
         imageView.setImageDrawable(dr);
 
-         TextView nametext = (TextView)cardView.findViewById(R.id.txtName);
-         TextView content = (TextView)cardView.findViewById(R.id.txtContent);
+         TextView nametext = cardView.findViewById(R.id.txtName);
+
 
 
 
